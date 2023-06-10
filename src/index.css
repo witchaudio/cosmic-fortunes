@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Italiana&display=swap');
+
+body {
+  background-color: #451677;
+  font-family: 'Italiana', serif;
+  color: #d79ec2;
+}
+
+@media (max-width: 768px) {
+  #parent {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+  } 
+
+  .small-card {
+    width: 100%;
+    height: auto;
+    margin: 10px;
+  }
+
+  #button-container {
+    flex-direction: column;
+    margin-top: 10px;
+  }
+
+  .card-description {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+}
