@@ -1,13 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/card1.png" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css"> <!-- Add this line -->
+
     <title>Cosmic Fortunes</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+   
+    </head>
+    <body>
+        <div class="header">
+            <img class="logo" src="assets/crystall-ball.png" alt="Crystal Ball Icon">
+            <h1>Cosmic Fortunes</h1>
+        </div>
+        <div id="parent">
+            <h2>Select an astrology sign:</h2>
+            <div id="button-container">
+                <button onclick="showHoroscope('Aries')"><img src="assets/aries.png" alt="Aries Icon"> Aries</button>
+                <button onclick="showHoroscope('Taurus')"><img src="assets/taurus.png" alt="Aries Icon"> Taurus</button>
+                <button onclick="showHoroscope('Gemini')"><img src="assets/gemini.png" alt="Aries Icon"> Gemini</button>
+                <button onclick="showHoroscope('Cancer')"><img src="assets/cancer.png" alt="Aries Icon"> Cancer</button>
+                <button onclick="showHoroscope('Leo')"><img src="assets/leo.png" alt="Aries Icon"> Leo</button>
+                <button onclick="showHoroscope('Virgo')"><img src="assets/virgo.png" alt="Aries Icon"> Virgo</button>
+                <button onclick="showHoroscope('Libra')"><img src="assets/libra.png" alt="Aries Icon"> Libra</button>
+                <button onclick="showHoroscope('Scorpio')"><img src="assets/scorpio.png" alt="Aries Icon"> Scorpio</button>
+                <button onclick="showHoroscope('Sagittarius')"><img src="assets/sagittarius.png" alt="Aries Icon"> Sagittarius</button>
+                <button onclick="showHoroscope('Capricorn')"><img src="assets/capricorn.png" alt="Aries Icon"> Capricorn</button>
+                <button onclick="showHoroscope('Aquarius')"><img src="assets/aquarius.png" alt="Aries Icon"> Aquarius</button>
+                <button onclick="showHoroscope('Pisces')"><img src="assets/pisces.png" alt="Aries Icon"> Pisces</button>
+            </div>
+            <div id="card-container"></div>
+            <div id="horoscope"></div>
+            <div id="horoscope"></div>
+            <div id="compatibility"></div>
+            
+        </div>
+
+        <div class="tarot-section">
+            <form action="reading.html" method="get">
+                <button type="submit">Get Full Tarot Reading!</button>
+            </form>
+        </div>
+        <br>
+        <br>
+        <div class="footer">
+            <p class="footer-text">&copy; Cosmic Fortunes | Witch Audio Studios</p>
+        </div>
+      </body>
+      
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous" defer></script>
+    <script src="script.js" defer></script>
+    <script src="script.js" defer></script>
 </html>

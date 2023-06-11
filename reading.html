@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Full Reading</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css">
+    <link rel="stylesheet" href="reading.css">
+</head>  
+<body>
+    <div class="header">
+        <img class="logo" src="assets/crystall-ball.png" alt="Crystal Ball Icon">
+        <h1><a href="index.html">Cosmic Fortunes</a></h1>
+    </div>
+    <div class="container">
+        <form id="reading-form">
+            <div>
+                <h2>Full Reading</h2>
+                <label for="name">Name:</label>
+                <input type="text" id="name" required>
+            </div>
+            <button type="submit">Get Full Reading!</button>
+        </form>
+        <div class="card-container" style="display: none;">
+            <h3 id="reading-heading"></h3>
+            <div id="card-slider"></div>
+          </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@latest/slick/slick.min.js"></script>
+
+    <script>
+// Function to shuffle an array
+function shuffleArray(array) {
+      let currentIndex = array.length;
+      while (currentIndex !== 0) {
+        const randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex -= 1;
+        [array[currentIndex], array[randomIndex]] = [array[randomIndex], array[currentIndex]];
+      }
+      return array;
+    }
+
+$(document).ready(() => {
+    const cards = [
+        {url: './assets/fool.jpg',
+        description: 'THE FOOL (new beginnings, spontaneity, and a free spirit.)'},
+        {url: './assets/magician.jpeg',
+        description: 'THE MAGICIAN (manifestation, resourcefulness, and inspired action'},
+        {url: './assets/priestess.jpg',
+        description: 'THE HIGH PRIESTESS (intuition, sacred knowledge, and divine feminine.)'},
+        {url: './assets/empress.jpg',
+        description: 'THE EMPRESS (femininity, beauty, nature, and abundance.)'},
+        {url: './assets/emperor.jpg',
+        description: 'THE EMPEROR (authority, empowerment, and structure.)'},
+        {url: './assets/hierophant.jpg',
+        description: 'THE HIEROPHANT (spiritual wisdom, religious beliefs, and institutions.)'},
+        {url: './assets/lovers.jpg',
+        description: 'THE LOVERS (love, harmony, relationships, and choices.)'},
+        {url:  './assets/chariot.jpg',
+        description: 'THE CHARIOT (control, willpower, success, and determination.)'},
+        {url: './assets/strength.jpg',
+        description: 'STRENGTH (courage, persuasion, influence, and compassion.)'},
+        {url:  './assets/hermit.jpg',
+        description:  'THE HERMIT (soul searching, introspection, and inner guidance.)'},
+        {url:   './assets/wheel-fortune.jpg',
+        description: 'THE WHEEL OF FORTUNE (good luck, karma, destiny, and a turning point.)'},
+        {url:   './assets/justice.jpg',
+        description: 'JUSTICE (fairness, truth, and law.)'},
+        {url: './assets/hanged-man.jpg',
+        description:  'THE HANGED MAN (surrender, letting go, and new perspectives.)'},
+        {url: './assets/death.jpg',
+        description: 'DEATH (endings, change, transformation, and transitions.)'},
+        {url:   './assets/temperance1.jpg',
+        description: 'TEMPERANCE (balance, moderation, patience, and purpose.)'},
+        {url:  './assets/devil.jpg',
+        description: 'THE DEVIL (shadow self, attachment, addiction, and sexuality.)'},
+        {url:   './assets/tower.jpg',
+        description: 'THE TOWER (sudden change, upheaval, chaos, and awakening.)'},
+        {url:   './assets/star.jpg',
+        description: 'THE STAR (hope, faith, purpose, and spirituality.)'},
+        {url:   './assets/moon.jpg',
+        description: 'THE MOON (illusion, fear, anxiety, and intuition.)'},
+        {url:   './assets/sun.jpg',
+        description:   'THE SUN (positivity, warmth, success, and vitality.)'},
+        {url:   './assets/judgment.jpg',
+        description: 'JUDGMENT (rebirth, inner calling, and absolution.)'},
+        {url:  './assets/world1.jpg',
+        description: 'THE WORLD (completion, integration, accomplishment, and travel.)'},
+        {url:   './assets/cups-page.jpg',
+        description: 'PAGE OF CUPS (creative opportunities, curiosity, and possibility.)'},
+        {url: './assets/cups-knight.jpg',
+        description: 'KNIGHT OF CUPS (creativity, romance, charm, and imagination.)'},
+        {url:   './assets/cups-queen.jpg',
+        description: 'QUEEN OF CUPS (compassionate, caring, and flow.)'},
+        {url: './assets/cups-king.jpg',
+        description: 'KING OF CUPS (emotional balance and diplomacy.)'},
+        {url:  './assets/swords-page.jpg',
+        description: 'PAGE OF SWORDS (new ideas, thirst for knowledge, and new ways of communicating.)'},
+        {url: './assets/swords-knight.jpg',
+        description: 'KNIGHT OF SWORDS (action-oriented, driven to succeed, and fast thinking.)'},
+        {url: './assets/swords-queen.jpg',
+        description: 'QUEEN OF SWORDS (independent, unbiased judgment, and clear boundaries.)'},
+        {url:  './assets/swords-king.jpg',
+        description: 'KING OF SWORDS (mental clarity, intellectual clarity, power, and authority.)'},
+        {url: './assets/pentacles-page.jpg',
+        description:   'PAGE OF PENTACLES (manifestation, financial opportunity, and skill development.)'},
+        {url:     './assets/pentacles-knight.jpg',
+        description:   'KNIGHT OF PENTACLES (hard work, productivity, and conservatism.)'},
+        {url:  './assets/pentacles-queen.jpg',
+        description:  'QUEEN OF PENTACLES (nurturing, practical, and providing financially.)'},
+        {url:     './assets/pentacles-king.jpg',
+        description:  'KING OF PENTACLES (wealth, business, leadership, and abundance.)'},
+        {url: './assets/wands-page.jpg',
+        description:  'PAGE OF WANDS (inspiration, ideas, and free spirit.)'},
+        {url:    './assets/wands-knight.jpg',
+        description:  'KNIGHT OF WANDS (energy, passion, adventure, and impulsiveness.)'},
+        {url:    './assets/wands-queen.jpg',
+        description: 'QUEEN OF WANDS (courage, confidence, and determination.)'},
+        {url:    './assets/wands-king.jpg',
+        description:    'KING OF WANDS (natural-born leader, vision, and honor.)'},
+
+  ];
+// Initialize the card slider variable
+const cardSlider = $('#card-slider');
+
+// Form submission event
+$('#reading-form').submit(function (event) {
+  event.preventDefault();
+  const name = $('#name').val();
+  generateFullReading(name);
+});
+
+function generateFullReading(name) {
+  const shuffledCards = shuffleArray(cards);
+  const readingCards = shuffledCards.slice(0, 3);
+
+  // Check if the carousel exists before destroying it
+  if (cardSlider.hasClass('slick-initialized')) {
+    cardSlider.slick('unslick');
+  }
+
+  cardSlider.empty();
+
+  $.each(readingCards, function (index, card) {
+    const cardElement = $('<div>');
+    const imageElement = $('<img>')
+      .attr('src', card.url)
+      .attr('alt', 'Card ' + (index + 1))
+      .css('width', '100%');
+    const descriptionElement = $('<p>')
+      .text(card.description)
+      .css('text-align', 'center');
+
+    cardElement.append(imageElement);
+    cardElement.append(descriptionElement);
+
+    cardSlider.append(cardElement);
+  });
+
+  $('#reading-heading').text('Full Reading for ' + name + ':');
+
+  // Initialize the slick carousel
+  cardSlider.slick({
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    fade: true,
+    adaptiveHeight: true,
+    centerMode: true,
+    centerPadding: '20px'
+  });
+
+  $(window).trigger('resize');
+
+  $('.card-container').show(); 
+}
+});
+    </script>
+</body>
+</html>
