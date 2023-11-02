@@ -41,7 +41,7 @@ const cards = [
   './assets/wands-king.jpg',
 
   
-]
+];
 
 // array of card descriptions
 const cardDescriptions = [
@@ -88,13 +88,13 @@ const cardDescriptions = [
 ];
 
 function insertCard() {
-const i = Math.floor(Math.random() * cards.length);
-const selectedCard = cards[i];
-const selectedDescription = cardDescriptions[i];
-$('#card-container').remove();
-$('<div id="card-container" class="card"></div>').appendTo($('#parent'));
-$('<p></p>').text(selectedDescription).appendTo($('#card-container'));
-$(`<img src=${selectedCard} class="small-card rounded-lg">`).appendTo($('#card-container'));
+  const i = Math.floor(Math.random() * cards.length);
+  const selectedCard = cards[i];
+  const selectedDescription = cardDescriptions[i];
+  $('#card-container').remove();
+  $('<div id="card-container" class="card"></div>').appendTo($('#parent'));
+  $('<p></p>').text(selectedDescription).appendTo($('#card-container'));
+  $(`<img src=${selectedCard} class="small-card rounded-lg">`).appendTo($('#card-container'));
 }
 
 function showHoroscope(sign) {

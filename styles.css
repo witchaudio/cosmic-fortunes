@@ -1,11 +1,18 @@
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=Nanum+Gothic+Coding&display=swap');
+
+:root {
+  --button-glow-start: #49B8D6; /* Start color of the glow */
+  --button-glow-end: #203220; /* End color of the glow */
+}
+
 
 body {
-    background: radial-gradient(circle, #3c0f61, #b766a1);
-    font-family: 'Bebas Neue', sans-serif;
-    color: #d79ec2;
+    background-color: #000;
+    font-family: 'Nanum Gothic Coding', monospace;
+    color: #fff;
     text-align: center;
-    margin-bottom: 10px;
+    margin: 0;
+    padding: 0;
 }
 
 .header {
@@ -20,141 +27,166 @@ body {
 }
 
 .logo img {
-    height: 20px; 
+    height: 20px;
 }
 
 h1 {
     font-size: 24px;
     margin: 0;
 }
-  
-  .gradient-background {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    z-index: -1;
-    overflow: hidden;
-    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAJUlEQVQI12NkgIKqzI7GhzGoEAErUANd6vZirDAAAAAElFTkSuQmCC');
-  }
-  
-  
-  
-  @keyframes noise {
-    0% {
-      background-position: 0 0;
-    }
-    100% {
-      background-position: 500px 500px;
-    }
-  }
-  
-  #parent {
+
+#parent {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 700px;
+    max-width: 700px;
     font-size: 18px;
-    color: #fdfafa;
+    color: #fff;
     padding: 30px;
     margin: 10px auto;
-    margin-bottom: 10px;
-    background-color: transparent;
+    background-color: rgba(255, 255, 255, 0);
     border-radius: 5px;
-  }
-  
-  .card {
-    background-color: rgba(32, 32, 32, 0.538);
-    border-radius: 0.5rem;
     box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
-    padding: 15px;
-    margin-top: 8px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    border-radius: 0.5rem;
-  }
+}
 
-  .rounded-lg {
-    border-radius: 0.5rem;
+.card {
+  background-color: rgba(32, 32, 32, 0.538);
+  border-radius: 0.5rem;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
+  padding: 15px;
+  margin-top: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border-radius: 0.5rem;
+  filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.3))
+    brightness(1.2);
+  position: relative; /* Add relative positioning */
+  border: 2px solid transparent; /* Remove the white border */
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: -6px; /* Increase the size of the border glow */
+  left: -6px; /* Increase the size of the border glow */
+  right: -6px; /* Increase the size of the border glow */
+  bottom: -6px; /* Increase the size of the border glow */
+  border: 2px solid transparent;
+  border-radius: 0.5rem;
+  animation: glowing-border 2s linear infinite;
+}
+
+@keyframes glowing-border {
+  0% {
+    border-color: #4920D6; /* Start color of the glow */
   }
-  
-  .text-center {
+  50% {
+    border-color: #D482FF; /* End color of the glow */
+  }
+  100% {
+    border-color: #4920D6; /* Back to the start color */
+  }
+}
+
+
+
+.rounded-lg {
+    border-radius: 0.5rem;
+}
+
+.text-center {
     font-size: 1.2rem;
-    color: #ffffff;
+    color: #fff;
     margin-bottom: 10px;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-  }
-  
-  button {
-    background-color: rgba(73, 184, 214, 0.5);
-    color: #ffffff;
-    font-family: 'Bebas Neue', sans-serif; /* Update the font-family */
-    border: none;
-    font-size: 16px;
-    padding: 10px 20px;
-    border-radius: 5px;
-    margin: 5px;
-    margin-bottom: 10px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-  }
-  
-  button:hover {
-    background-color: rgba(73, 184, 214, 0.8);
-  }
-  
-  @media (max-width: 768px) {
-    #parent {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      margin-bottom: 20px;
-      align-items: center;
-      width: auto;
-      border-radius: 8px;
-      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-    }
-  
-    .small-card {
-      width: 100%;
-      height: auto;
-      margin: 10px;
-      border-radius: 8px;
-      box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-      filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.3));
-    }
-  
-    #button-container {
-      flex-direction: column;
-      margin-top: 10px;
-      margin-bottom: 10px;
-      color: #ffffff;
-      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-    }
-  }
-  
-  .card-description {
-    font-size: 20px !important;
-    margin-bottom: 20px;
-    color: #ffffff;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-  }
-  
-  .rounded-lg {
-    border-radius: 0.5rem;
-  }
-    
-  p {
-    line-height: 1; 
-    margin-bottom: 20px;
-  }
-  
+}
 
-  .footer {
+button {
+  background: linear-gradient(
+    135deg,
+    rgba(82, 82, 255, 0.075),
+    rgba(192, 82, 255, 0.5),
+    rgba(82, 82, 255, 0.5),
+    rgba(192, 82, 255, 0.097),
+    rgba(82, 82, 255, 0.131)
+  );
+  color: #fff;
+  font-family: 'Nanum Gothic Coding', monospace;
+  border-radius: 0.5rem;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
+  font-size: 16px;
+  padding: 10px 20px;
+  border-radius: 5px;
+  margin: 5px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  position: relative;
+  border: 2px solid transparent;
+  border-radius: 0.5rem;
+  transition: border-color 0.3s, transform 0.3s;
+}
+
+button:hover {
+  border-color: #4920D6;
+  transform: scale(1.05); /* Optional: Add a slight scale effect on hover */
+}
+
+@media (max-width: 768px) {
+    #parent {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-bottom: 20px;
+        align-items: center;
+        width: auto;
+        border-radius: 8px;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    .small-card {
+        width: 100%;
+        height: auto;
+        margin: 10px;
+        border-radius: 8px;
+        box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.3));
+    }
+
+    #button-container {
+        flex-direction: column;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        color: #fff;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    }
+}
+
+/* Add glowing border effect to .card-description */
+.card-description {
+  
+  font-size: 20px !important;
+  margin-bottom: 20px;
+  color: #fff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  padding: 10px;
+  position: relative;
+  border: 2px solid rgba(255, 255, 255, 0.5); /* Add a white border */
+  border-radius: 0.5rem; /* Match the border radius of .card */
+}
+
+.rounded-lg {
+    border-radius: 0.5rem;
+}
+
+p {
+    line-height: 1;
+    margin-bottom: 20px;
+}
+
+.footer {
     position: fixed;
     flex-shrink: 0;
     bottom: 0;
@@ -163,15 +195,11 @@ h1 {
     background-color: transparent;
     padding: 5px;
     text-align: center;
-    display: none; /* Hide the footer by default */
-  }
-  
-  .footer-text {
+    display: none;
+}
+
+.footer-text {
     font-size: 12px;
-    color: #d6d4d4;
+    color: #fff;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-  }
-  
-  .content {
-    flex: 1 0 auto;
 }

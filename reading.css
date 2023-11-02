@@ -1,54 +1,96 @@
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=Nanum+Gothic+Coding&display=swap');
 
-body {
-    background: radial-gradient(circle, #3c0f61, #b766a1);
-    font-family: 'Bebas Neue', sans-serif;
-    color: #d79ec2;
-    text-align: center;
-    margin-bottom: 10px;
+:root {
+  --button-glow-start: #49B8D6; /* Start color of the glow */
+  --button-glow-end: #203220; /* End color of the glow */
+  --card-glow-start: rgba(82, 82, 255, 0.069); /* Start color of the card glow */
+  --card-glow-end: rgba(82, 82, 255, 0.183); /* End color of the card glow */
 }
 
-.header h1 a {
-    color: inherit;
-    text-decoration: none;
-  }
+body {
+  background-color: #000;
+  font-family: 'Nanum Gothic Coding', monospace;
+  color: #fff;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  margin-bottom: 10px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
 
 .logo {
-    margin-right: 10px;
+  margin-right: 10px;
 }
 
 .logo img {
-    height: 20px; 
+  height: 20px;
 }
 
 h1 {
-    font-size: 24px;
-    margin: 0;
+  font-size: 24px;
+  margin: 0;
+}
+
+@keyframes glowing-border {
+  0% {
+    border-color: #4920D6; /* Start color of the glow */
+  }
+  50% {
+    border-color: #D482FF; /* End color of the glow */
+  }
+  100% {
+    border-color: #4920D6; /* Back to the start color */
+  }
 }
 
 .card-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    border-radius: 8px;
-    text-align: center;
-    margin-top: 16px;
-    color: aliceblue;
-    background-color: #23222281;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    max-width: 400px; /* Adjust the max-width to your preference */
-    margin-left: auto;
-    margin-right: auto;
-    padding: 20px;
-  }
-  
+  background: linear-gradient(
+    135deg,
+    var(--card-glow-start),
+    rgba(192, 82, 255, 0.037),
+    rgba(82, 82, 255, 0.245),
+    rgba(192, 82, 255, 0.263),
+    var(--card-glow-end)
+  );
+  border-radius: 0.5rem;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
+  padding: 15px;
+  margin-top: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border-radius: 0.5rem;
+  filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.3))
+    brightness(1.2);
+  position: relative; /* Add relative positioning */
+  border: 2px solid transparent; /* Remove the white border */
+  animation: glowing-border 2s linear infinite; /* Add glowing animation */
+}
 
 .card-container img {
-  border-radius: 8px;
-  width: 50%;
-  max-height: 400px;
-  margin-bottom: 10px;
+  background-color: rgba(32, 32, 32, 0.538);
+  border-radius: 0.5rem;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
+  padding: 15px;
+  margin-top: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border-radius: 0.5rem;
+  filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.3))
+    brightness(1.2);
+  position: relative; /* Add relative positioning */
+  border: 2px solid transparent; /* Remove the white border */
 }
 
 .card-container .slick-slider {
@@ -57,10 +99,10 @@ h1 {
 
 /* Default styles for container and card-slider */
 .container {
-    max-width: 500px; /* Adjust the max-width to your preference */
-    margin: 0 auto;
-    padding: 20px;
-  }
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+}
 
 #card-slider {
   width: 100%;
@@ -74,18 +116,30 @@ h1 {
 }
 
 button {
-    background-color: rgba(73, 184, 214, 0.5);
-    color: #ffffff;
-    font-family: 'Bebas Neue', sans-serif; /* Update the font-family */
-    border: none;
-    font-size: 16px;
-    padding: 10px 20px;
-    border-radius: 5px;
-    margin: 5px;
-    margin-bottom: 10px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-  }
-  
-  button:hover {
-    background-color: rgba(73, 184, 214, 0.8);
-  }
+  background: linear-gradient(
+    135deg,
+    rgba(82, 82, 255, 0.075),
+    rgba(192, 82, 255, 0.5),
+    rgba(82, 82, 255, 0.5),
+    rgba(192, 82, 255, 0.097),
+    rgba(82, 82, 255, 0.131)
+  );
+  color: #fff;
+  font-family: 'Nanum Gothic Coding', monospace;
+  border-radius: 0.5rem;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
+  font-size: 16px;
+  padding: 10px 20px;
+  border-radius: 5px;
+  margin: 5px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  position: relative;
+  border: 2px solid transparent;
+  border-radius: 0.5rem;
+  transition: border-color 0.3s, transform 0.3s;
+}
+
+button:hover {
+  border-color: #4920D6;
+  transform: scale(1.05); /* Optional: Add a slight scale effect on hover */
+}

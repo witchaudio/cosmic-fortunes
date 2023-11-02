@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=Nanum+Gothic+Coding&display=swap" rel="stylesheet">
     <title>Full Reading</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css">
@@ -10,7 +11,7 @@
 </head>  
 <body>
     <div class="header">
-        <img class="logo" src="assets/crystall-ball.png" alt="Crystal Ball Icon">
+        <img class="logo" src="assets/48cards-icon.png" alt="cards icon">
         <h1><a href="index.html">Cosmic Fortunes</a></h1>
     </div>
     <div class="container">
@@ -18,8 +19,26 @@
             <div>
                 <h2>Full Reading</h2>
                 <label for="name">Name:</label>
-                <input type="text" id="name" required>
+                <input type="text" id="name" name="unique-name-input" required autocomplete="off">
+
             </div>
+            <div>
+              <label for="astrology-sign">Astrology Sign:</label>
+              <select id="astrology-sign">
+                  <option value="Aries">Aries</option>
+                  <option value="Taurus">Taurus</option>
+                  <option value="Gemini">Gemini</option>
+                  <option value="Cancer">Cancer</option>
+                  <option value="Leo">Leo</option>
+                  <option value="Virgo">Virgo</option>
+                  <option value="Libra">Libra</option>
+                  <option value="Scorpio">Scorpio</option>
+                  <option value="Sagittarius">Sagittarius</option>
+                  <option value="Capricorn">Capricorn</option>
+                  <option value="Aquarius">Aquarius</option>
+                  <option value="Pisces">Pisces</option>
+              </select>
+          </div>
             <button type="submit">Get Full Reading!</button>
         </form>
         <div class="card-container" style="display: none;">
